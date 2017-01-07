@@ -14,5 +14,17 @@ print r_uniform()
 print r_normal()
 print r_normal()
 
+rnd_val = r_uv.rng.get_value(borrow=True)
+state = rnd_val.get_state()
 
-#printing seeds of random variables
+v1 =  r_uniform()
+v2 =  r_uniform()
+
+rnd_val = r_uv.rng.get_value(borrow=True)
+rnd_val.set_state(state)
+r_nd.rng.set_value(rnd_val)
+v3 = r_uniform()
+print v1
+print v2
+print v3
+print v1 == v3
